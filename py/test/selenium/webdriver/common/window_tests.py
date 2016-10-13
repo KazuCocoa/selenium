@@ -24,7 +24,7 @@ class TestWindow(object):
     @pytest.mark.ignore_chrome
     @pytest.mark.ignore_ie
     def testShouldMaximizeTheWindow(self, driver):
-        if driver.capabilities['browserName'] == 'firefox' and os.environ.get('TRAVIS') == 'true':
+        if driver.capabilities['browserName'] == 'firefox' and 'TRAVIS' in os.environ:
             pytest.xfail("This fails on Travis CI only, not sure why.")
         resize_timeout = 5
         wait = WebDriverWait(driver, resize_timeout)
