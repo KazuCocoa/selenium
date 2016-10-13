@@ -161,15 +161,6 @@ class TestApiExample(object):
         assert option_elems[0].is_selected()
         assert option_elems[2].is_selected()
 
-    def testNavigate(self, driver, pages):
-        pages.load("formPage.html")
-        driver.find_element_by_id("imageButton").submit()
-        assert "We Arrive Here" == driver.title
-        driver.back()
-        assert "We Leave From Here" == driver.title
-        driver.forward()
-        assert "We Arrive Here" == driver.title
-
     def testGetAttribute(self, driver, pages):
         url = pages.url('xhtmlTest.html')
         driver.get(url)
