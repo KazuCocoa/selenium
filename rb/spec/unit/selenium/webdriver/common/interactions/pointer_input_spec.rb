@@ -261,6 +261,11 @@ module Selenium
           it 'should contain an origin key equal to the element' do
             expect(move.encode).to include(origin: element)
           end
+
+          it 'should not contain an origin key equal to the element' do
+            move = PointerMove.new(source, duration, x, y)
+            expect(move.encode).to_not include(origin: nil)
+          end
         end # when encoding
       end # PointerMove
 

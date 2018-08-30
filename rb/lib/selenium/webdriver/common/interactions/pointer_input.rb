@@ -113,7 +113,7 @@ module Selenium
 
         def encode
           output = {type: type, duration: @duration.to_i, x: @x_offset, y: @y_offset}
-          output[:origin] = @origin
+          output[:origin] = @origin if @origin
           output
         end
       end # Move
